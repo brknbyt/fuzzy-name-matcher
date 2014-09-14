@@ -1,0 +1,113 @@
+frank coraci:gregg araki;false
+mark c. andrews:mark c. andrews;true
+lana wachowski:larry wachowski;false
+andy wachowski:larry wachowski;false
+david fincher:michael winner;false
+alan j. pakula:alan j. pakula;true
+robert b. weide:robert b. weide;true
+werner herzog:denis chernov;false
+asger leth:peter jackson;false
+asger leth:hans-jürgen tögel;false
+j.j. abrams:j.j. abrams;true
+david schwimmer:danny schechter;false
+ivan reitman:len wiseman;false
+rza:zack snyder;false
+george p. cosmatos:george p. cosmatos;true
+john g. avildsen:john g. avildsen;true
+p. j. hogan:p.j. hogan;true
+james wong:james wong (iv);true
+alexis dos santos:amos poe;false
+steven r. monroe:steven r. monroe;true
+kim j. ok:kim j. ok;true
+george a. romero:george a. romero;true
+len wiseman:jean renoir;false
+mike bigelow:michael bigelow;false
+asa sjöström:asa sjostrom;true
+thaddeus o'sullivan:thaddeus o'sullivan;true
+peter a. dowling:peter a. dowling;true
+paco plaza:paul verhoeven;false
+paco plaza:oxide pang;false
+paco plaza:danny pang;false
+curt a. sindelar:curt a. sindelar;true
+william a. wellman:william a. wellman;true
+j.c. chandor:j.c. chandor;true
+max lang:gus van sant;false
+hae-sung song:jing wong;false
+chu yen-ping:kevin chu;false
+george miller:guillermo de mulder;false
+greg a. sager:greg a. sager;true
+tom holland:tommy lee wallace;false
+stephen frears:diphan;false
+morgan j. freeman:morgan j. freeman;true
+robert c. cooper:robert c. cooper;true
+demain lichtenstein:demian lichtenstein;true
+s. roy luby:s. roy luby;true
+chris d'arienzo:chris d'arienzo;true
+john madden:jon jones;false
+sean anders:gus van sant;false
+dwight h. little:dwight h. little;true
+albert hughes:allen hughes;false
+allen hughes:albert hughes;false
+frédéric goupil:frederic goupil;true
+oliver parker:herbert brieger;false
+c.b. harding:c.b. harding;true
+milos forman:joan micklin silver;false
+mario van peebles:karl hadrika;false
+seth macfarlane:kevin sean michaels;false
+gérard krawczyk:gérard krawczyk;true
+ethan coen:joel coen;false
+joel coen:ethan coen;false
+shane black:perry lang;false
+shane black:richard lang;false
+d.w. griffith:d.w. griffith;true
+brett pierce:drew t. pierce;false
+simon chung:sun w. kim;false
+simon chung:chen-hsi wong;false
+simon chung:young-hoon park;false
+jérôme deschamps:jerome deschamps;true
+aitor arregi:peter farrelly;false
+iñigo berasategui:iñigo berasategui;true
+oxide pang:danny pang;false
+oxide pang:siu-tung ching;false
+p. a. straubinger:p.a. straubinger;true
+s.j. clarkson:s.j. clarkson;true
+bernard rose:costa botes;false
+howard e. baker:howard e. baker;true
+james l. brooks:james l. brooks;true
+lee jeong-beom:jeong-sik kong;false
+michael moore:marie-castille mention-schaar;false
+michael moore:mitch mortaza;false
+cole s. mckay:cole s. mckay;true
+jonathan demme:dale dimmick;false
+james wan:kim jee-woon;false
+r. w. goodwin:r.w. goodwin;true
+p.j. pettiette:p.j. pettiette;true
+alexander sokurow:rainer werner fassbinder;false
+robert n. bradbury:robert n. bradbury;true
+bruce a. evans:bruce a. evans;true
+j.j. abrams:alan j. abrams;false
+j.t. petty:j.t. petty;true
+gabe ibáñez:gabe ibanez;true
+jerry paris:olivier jean marie;false
+j. mackye gruber:j. mackye gruber;true
+jerry paris:trey parker;false
+mark l. lester:mark l. lester;true
+seong-ho kim:sung-ho kim;true
+andrew c. erin:andrew c. erin;true
+mike mills:gus meins;false
+brian robbins:ivan reitman;false
+roman polanski:joon-ha moon;false
+markus rosenmüller:marcus o. rosenmüller;false
+herbert ross:werner völger;false
+herbert ross:markus rosenmüller;false
+herbert ross:marcus o. rosenmüller;false
+jonathan lynn:john mcnaughton;false
+peder norlund:peter podehl;false
+peter webber:daniel helfer;false
+peter webber:ulrich zrenner;false
+peter webber:gebhard schätzler-perasini;false
+antonijs prizevoits:tony prizevoits;false
+steven spielberg:péter szeiler;false
+ron williams:bill condon;false
+paul ziller:william richert;false
+Chen Chiwa:Chi-Hwa Chen;true

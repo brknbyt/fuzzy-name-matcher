@@ -19,10 +19,6 @@ public class CosineSimilarity implements IStringMetric {
 		int[] nameAvector = createVector(biGramA);
 		int[] nameBvector = createVector(biGramB);
 
-		for(int i = 0; i < nameAvector.length; i++){
-			System.out.println(nameAvector[i] +  "   " + nameBvector[i]);
-		}
-		
 		int a = 0;
 		for (int i = 0; i< nameAvector.length; i++) {
 			a += nameAvector[i] * nameBvector[i];
@@ -39,10 +35,12 @@ public class CosineSimilarity implements IStringMetric {
 		}
 		
 		double result = a /(Math.sqrt(b) * Math.sqrt(c));
+		
+		result = result > 1 ? 1.0D : result;
 
 		return result;
 	}
-
+	
 	public String[] biGram(String str) {
 		String[] bigram = new String[str.length() - 1];
 		for (int i = 0; i < str.length() - 1; i++) {

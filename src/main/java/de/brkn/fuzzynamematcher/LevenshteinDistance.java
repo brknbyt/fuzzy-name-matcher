@@ -41,10 +41,16 @@ public class LevenshteinDistance implements IStringMetric{
 			cost = newcost;
 			newcost = swap;
 		}
+		
+		int length = s0.length() >= s1.length() ? s0.length() : s1.length();
 
 		// the distance is the cost for transforming all letters in both
 		// strings
-		return cost[len0 - 1];
+		return normalize(cost[len0 - 1],length);
+	}
+	
+	private double normalize(int lev, int length){
+		return 1.0D - (double) lev / length;
 	}
 
 }

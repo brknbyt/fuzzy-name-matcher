@@ -7,7 +7,7 @@ public class StringMetricFactory {
 		case 0:
 			return new LevenshteinDistance();
 		case 1:
-			return null;
+			return new CosineSimilarity();
 		default:
 			return null;
 		}

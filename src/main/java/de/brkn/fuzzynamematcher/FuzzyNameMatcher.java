@@ -1,8 +1,16 @@
 package de.brkn.fuzzynamematcher;
 
+import java.text.Normalizer;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+import java.util.regex.Pattern;
 
 public class FuzzyNameMatcher {
+
+	public static final Pattern DIACRITICS_AND_FRIENDS = Pattern
+			.compile("[\\p{InCombiningDiacriticalMarks}\\p{IsLm}\\p{IsSk}]+");
 
 	private IStringMetric stringMetric;
 
@@ -13,77 +21,69 @@ public class FuzzyNameMatcher {
 	}
 
 	public boolean matchNames(String name0, String name1) {
-		String[] firstName = tokenizeName(name0);
-		String[] secondName = tokenizeName(name1);
+		if (name0.isEmpty() || name1.isEmpty()) {
+			return false;
+		}
+		String[] firstName = tokenizeName(cleanName(name0));
+		String[] secondName = tokenizeName(cleanName(name1));
 		return fuzzyNameMatching(firstName, secondName);
-
 	}
-	
-	private String[] tokenizeName(String name){
+
+	private String[] tokenizeName(String name) {
 		String[] splittetName = name.split("\\W");
 		ArrayList<String> tokenList = new ArrayList<String>();
-		
-		for(String nPart: splittetName){
-			if(null != nPart && nPart.length() > 0 && !nPart.matches("\\W")){
-				tokenList.add(nPart);
+		for (String nPart : splittetName) {
+			if (null != nPart && nPart.length() > 0 && !nPart.matches("\\W+")) {
+				tokenList.add(nPart.trim());
 			}
 		}
-		
 		return tokenList.toArray(new String[tokenList.size()]);
 	}
 
+	private String cleanName(String name) {
+		String cleanedName = name.toLowerCase();
+		cleanedName = Normalizer.normalize(cleanedName, Normalizer.Form.NFD);
+		cleanedName = DIACRITICS_AND_FRIENDS.matcher(cleanedName).replaceAll("");
+		cleanedName = cleanedName.replaceAll("(-|'|\\(|\\))", "");
+		cleanedName = cleanedName.replaceAll("[ivx]+$", "");
+		return cleanedName.trim();
+
+	}
+
 	private boolean fuzzyNameMatching(String[] nameA, String[] nameB) {
-		String nA = "";
-		String nB = "";
-		String lastFirstA = nameA[nameA.length - 1];
-		String lastFirstB = nameB[nameB.length - 1];
-		
-		for (int i = 0; i < nameA.length; i++) {
-			nA += nameA[i];
-			if (nameA.length > 1 && i < nameA.length - 1) {
-				lastFirstA += nameA[i];
-			}
-		}
-		for (int j = 0; j < nameB.length; j++) {
-			nB += nameB[j];
-			if (nameB.length > 1 && j < nameB.length - 1) {
-				lastFirstB += nameB[j];
-			}
-		}
-
-		nA = nA.replaceAll("(\\s|\\.|-|')", "");
-		nB = nB.replaceAll("(\\s|\\.|-|')", "");
-		double lFullName = stringMetric.compare(nA, nB);
-		double lLastFirstAB = stringMetric.compare(lastFirstA, nB);
-		double lLastFirstBA = stringMetric.compare(nA, lastFirstB);
-
-		int[] positions = new int[nameA.length];
 		int matches = 0;
-		for (int i = 0; i < nameA.length; i++) {
-			for (int j = 0; j < nameB.length; j++) {
-				double similarity = stringMetric.compare(nameA[i], nameB[j]);
 
-				float p = similarity == 0 ? 0 : (float) similarity
-						/ (float) nameA[i].length();
-				if (p <= 0.4) {
-					if (matches < positions.length) {
-						positions[matches] = j;
+		List<String> nameBList = new ArrayList<String>(Arrays.asList(nameB));
+		for (int i = 0; i < nameA.length; i++) {
+			Iterator<String> it = nameBList.iterator();
+			while (it.hasNext()) {
+				String nameBPart = (String) it.next();
+
+
+				if (nameA[i].length() < 2 || nameBPart.length() < 2) {
+					if (nameA[i].equals(nameBPart)) {
+						it.remove();
 						matches++;
+						break;
+					}
+				} else {
+					double similarity = stringMetric.compare(nameA[i],
+							nameBPart);
+
+					if (similarity > 0.5) {
+						it.remove();
+						matches++;
+						break;
 					}
 				}
 			}
 		}
 
-		float p = (float) matches / nameA.length * matches / nameB.length;
-		float q1 = (float) lFullName / nA.length();
-		float q2 = (float) lLastFirstAB / nA.length();
-		float q3 = (float) lLastFirstBA / nA.length();
-
-		if (matches == nameA.length || p >= 0.5 || q1 <= 0.33 || q2 <= 0.33
-				|| q3 <= 0.33) {
+		if (matches == nameA.length) {
 			return true;
 		}
 		return false;
+
 	}
 
 }
